@@ -1,32 +1,60 @@
-" Enable pathogen
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'dracula/vim'
+
+call vundle#end()       
 filetype plugin indent on
-call pathogen#helptags()
 
-"Enable syntax color and number line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Display
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
 syntax on
-set nu
 colorscheme dracula
-set cursorline
-filetype indent on
 
-" allows cursor change in tmux mode
-if exists('$TMUX')
-	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cursor
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ruler
 
- "autocompletion with ctrl+space
-inoremap <c-space> <c-n>
-inoremap <Nul> <c-n>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ignorecase
+set smartcase
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Encoding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set encoding=utf8
+set fileencoding=utf-8
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+set tabstop=4
+set shiftwidth=4
+
+set smartindent 
+set autoindent  
+
+set textwidth=80
+set linebreak
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Coding shortcuts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 inoremap ( ()<left>
 inoremap { {}<left>
 inoremap [ []<left>
 
-map <F3> :tabnext<CR>
-map <F4> :tabnew<CR>
-map <F2> :NERDTreeToggle<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mapping
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = ","
